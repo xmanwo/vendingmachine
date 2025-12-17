@@ -1,0 +1,176 @@
+[gd_scene load_steps=10 format=3 uid="uid://7gxqhljcev3i"]
+
+[ext_resource type="PackedScene" uid="uid://cno738xlxx1w2" path="res://Assets/Models/retro_cyberpunk_vending_machine.glb" id="1_gvfdi"]
+[ext_resource type="Script" uid="uid://cx81vwuxe3r34" path="res://Scripts/button_interactable.gd" id="1_r8xv5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8xv5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xpst"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_saeyp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6xndp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mboop"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_khbxd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_enidh"]
+
+[node name="VendingMachine" type="Node3D"]
+
+[node name="DispenserSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.40880728, 0.6)
+
+[node name="InternalLight" type="OmniLight3D" parent="."]
+light_energy = 1.2
+shadow_enabled = true
+shadow_normal_bias = 0.5
+omni_range = 2.1
+
+[node name="Buttons" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.396, 0.682, 0.661)
+
+[node name="Btn_Melancholy" type="Node3D" parent="Buttons"]
+transform = Transform3D(1.5, 0, 0, 0, 1.1, 0, 0, 0, 1, -0.051, -0.024, 0.02)
+script = ExtResource("1_r8xv5")
+
+[node name="ButtonMesh" type="MeshInstance3D" parent="Buttons/Btn_Melancholy"]
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Buttons/Btn_Melancholy"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Btn_Melancholy/Area3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+shape = SubResource("BoxShape3D_r8xv5")
+
+[node name="ButtonSFX" type="AudioStreamPlayer3D" parent="Buttons/Btn_Melancholy"]
+
+[node name="Btn_Anger" type="Node3D" parent="Buttons"]
+transform = Transform3D(1.5, 0, 0, 0, 1.2, 0, 0, 0, 1, -0.045, -0.154, 0.02)
+script = ExtResource("1_r8xv5")
+emotion_id = "anger"
+
+[node name="ButtonMesh" type="MeshInstance3D" parent="Buttons/Btn_Anger"]
+
+[node name="Area3D" type="Area3D" parent="Buttons/Btn_Anger"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Btn_Anger/Area3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+shape = SubResource("BoxShape3D_3xpst")
+
+[node name="ButtonSFX" type="AudioStreamPlayer3D" parent="Buttons/Btn_Anger"]
+
+[node name="Btn_Joy" type="Node3D" parent="Buttons"]
+transform = Transform3D(1.5, 0, 0, 0, 1.1, 0, 0, 0, 1, 0.065, -0.018, 0.02)
+script = ExtResource("1_r8xv5")
+emotion_id = "joy"
+
+[node name="ButtonMesh" type="MeshInstance3D" parent="Buttons/Btn_Joy"]
+
+[node name="Area3D" type="Area3D" parent="Buttons/Btn_Joy"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Btn_Joy/Area3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+shape = SubResource("BoxShape3D_saeyp")
+
+[node name="ButtonSFX" type="AudioStreamPlayer3D" parent="Buttons/Btn_Joy"]
+
+[node name="Btn_Zen" type="Node3D" parent="Buttons"]
+transform = Transform3D(1.5, 0, 0, 0, 1.2, 0, 0, 0, 1, 0.069, -0.155, 0.02)
+script = ExtResource("1_r8xv5")
+emotion_id = "zen"
+
+[node name="ButtonMesh" type="MeshInstance3D" parent="Buttons/Btn_Zen"]
+
+[node name="Area3D" type="Area3D" parent="Buttons/Btn_Zen"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Btn_Zen/Area3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+shape = SubResource("BoxShape3D_6xndp")
+
+[node name="ButtonSFX" type="AudioStreamPlayer3D" parent="Buttons/Btn_Zen"]
+
+[node name="Btn_Glitch" type="Node3D" parent="Buttons"]
+transform = Transform3D(1.5, 0, 0, 0, 1.2, 0, 0, 0, 1, 0.009, -0.066, 0.02)
+script = ExtResource("1_r8xv5")
+emotion_id = "glitch"
+
+[node name="ButtonMesh" type="MeshInstance3D" parent="Buttons/Btn_Glitch"]
+
+[node name="Area3D" type="Area3D" parent="Buttons/Btn_Glitch"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Btn_Glitch/Area3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+shape = SubResource("BoxShape3D_mboop")
+
+[node name="ButtonSFX" type="AudioStreamPlayer3D" parent="Buttons/Btn_Glitch"]
+
+[node name="Label_Melancholy" type="Label3D" parent="Buttons"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04626581, -0.014199197, 0)
+pixel_size = 0.0003
+modulate = Color(0, 0.2, 0.8, 1)
+text = "Melancholy"
+
+[node name="Label_Anger" type="Label3D" parent="Buttons"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050809383, -0.14308077, 0)
+pixel_size = 0.0003
+modulate = Color(1, 0, 0, 1)
+text = "Anger"
+
+[node name="Label_Joy" type="Label3D" parent="Buttons"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061662138, -0.014199197, 0)
+pixel_size = 0.0003
+modulate = Color(1, 0.6666667, 0, 1)
+text = "Joy"
+
+[node name="Label_Zen" type="Label3D" parent="Buttons"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06276426, -0.14405519, 0)
+pixel_size = 0.0003
+modulate = Color(0, 1, 0.6666667, 1)
+text = "Zen"
+
+[node name="Label_Glitch" type="Label3D" parent="Buttons"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010031283, -0.056700885, 0)
+pixel_size = 0.0005
+modulate = Color(0.6666667, 0, 1, 1)
+text = "?"
+
+[node name="Body" parent="." instance=ExtResource("1_gvfdi")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, -0.7, 0, 0)
+
+[node name="TrayCollider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrayCollider"]
+transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.6, 0.4, 0.2, 0.6)
+shape = SubResource("BoxShape3D_khbxd")
+
+[node name="TrayCollider2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrayCollider2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0.4, 0.2, 0.5)
+shape = SubResource("BoxShape3D_khbxd")
+
+[node name="TrayCollider3" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrayCollider3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0.4, 0.2, 0.75)
+shape = SubResource("BoxShape3D_khbxd")
+
+[node name="TrayCollider4" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrayCollider4"]
+transform = Transform3D(0.2, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.24016498, 0.2, 0.6)
+shape = SubResource("BoxShape3D_khbxd")
+
+[node name="TrayCollider5" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrayCollider5"]
+transform = Transform3D(0.2, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5663669, 0.2, 0.6)
+shape = SubResource("BoxShape3D_khbxd")
+
+[node name="VM_Collider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VM_Collider"]
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 0.4, 0.05476153, 0.54104906, 0.3758555)
+shape = SubResource("BoxShape3D_enidh")

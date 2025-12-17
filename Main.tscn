@@ -1,0 +1,190 @@
+[gd_scene load_steps=37 format=3 uid="uid://fo1eysytjjx6"]
+
+[ext_resource type="Script" uid="uid://d1hobih4x4s2n" path="res://Scripts/main.gd" id="1_fos0i"]
+[ext_resource type="Texture2D" uid="uid://nv18125r8vru" path="res://Materials/back/street_lamp_2k.exr" id="2_3dxm6"]
+[ext_resource type="Script" uid="uid://y4txh43mo54o" path="res://Scripts/can_factory.gd" id="3_lgr22"]
+[ext_resource type="PackedScene" uid="uid://bqmvtpb4pm31a" path="res://can.tscn" id="4_devvj"]
+[ext_resource type="PackedScene" uid="uid://7gxqhljcev3i" path="res://vending_machine.tscn" id="5_03owx"]
+[ext_resource type="Script" uid="uid://dwwdy3u4tsfi5" path="res://Scripts/orbit_camera.gd" id="6_3dxm6"]
+[ext_resource type="Script" uid="uid://dmpt0kcwxfefg" path="res://Scripts/environment_manager.gd" id="7_lgr22"]
+[ext_resource type="AudioStream" uid="uid://so6uln5nbhxy" path="res://Assets/Audio/1youyu.ogg" id="8_5vvyt"]
+[ext_resource type="AudioStream" uid="uid://dkg64aaynvyer" path="res://Assets/Audio/windback.ogg" id="9_5vvyt"]
+[ext_resource type="AudioStream" uid="uid://bw5f0w8ga56r4" path="res://Assets/Audio/2fennu.mp3" id="9_c6i3y"]
+[ext_resource type="AudioStream" uid="uid://h0mng1cij75n" path="res://Assets/Audio/3huanyu.mp3" id="10_c2ibq"]
+[ext_resource type="AudioStream" uid="uid://otxvlkp5n2mh" path="res://Assets/Audio/4chanyi.ogg" id="11_c6i3y"]
+[ext_resource type="AudioStream" uid="uid://3ogxf87bvy5b" path="res://Assets/Audio/5guzhang1.ogg" id="12_5vvyt"]
+[ext_resource type="Texture2D" uid="uid://dwex8o88wmikv" path="res://Materials/fog_01.png" id="14_devvj"]
+[ext_resource type="Texture2D" uid="uid://c7w1eqjtttju1" path="res://Materials/fog_02.png" id="15_3b0ty"]
+[ext_resource type="Texture2D" uid="uid://bjgt0faiyuwuq" path="res://Materials/fog_03.png" id="16_bg4s2"]
+[ext_resource type="Texture2D" uid="uid://cn0lg534cb2rl" path="res://Materials/fog_04.png" id="17_hhcpw"]
+[ext_resource type="Texture2D" uid="uid://bgpovguusp6vl" path="res://Materials/fog_05.png" id="18_mxvw5"]
+[ext_resource type="Texture2D" uid="uid://brogq6xp4r1p5" path="res://Materials/fog_06.png" id="19_xrxkg"]
+[ext_resource type="Texture2D" uid="uid://4sqhqvog3jm" path="res://Materials/fog_07.png" id="20_sqvbp"]
+[ext_resource type="Texture2D" uid="uid://drhiytwwr76ji" path="res://Materials/fog_08.png" id="21_hri7i"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_r3fl7"]
+panorama = ExtResource("2_3dxm6")
+
+[sub_resource type="Sky" id="Sky_jka67"]
+sky_material = SubResource("PanoramaSkyMaterial_r3fl7")
+
+[sub_resource type="Environment" id="Environment_i5arm"]
+background_mode = 2
+sky = SubResource("Sky_jka67")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5vvyt"]
+emission_shape_offset = Vector3(0, 2.7, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1.5, 0.1, 1.5)
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 1.5
+initial_velocity_max = 3.0
+collision_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_5vvyt"]
+size = Vector2(0.005, 0.1)
+
+[sub_resource type="Curve" id="Curve_5vvyt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0, Vector2(0.9924243, 0.022471905), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_c6i3y"]
+curve = SubResource("Curve_5vvyt")
+
+[sub_resource type="Curve" id="Curve_c6i3y"]
+_data = [Vector2(0, 0.022471905), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_c2ibq"]
+curve = SubResource("Curve_c6i3y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c6i3y"]
+lifetime_randomness = 0.5
+emission_shape_offset = Vector3(0, 1, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1.2, 0.8, 1.2)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 0.049999997
+initial_velocity_max = 0.099999994
+orbit_velocity_min = 0.2000001
+orbit_velocity_max = 0.60000014
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_c6i3y")
+emission_curve = SubResource("CurveTexture_c2ibq")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vvyt"]
+cull_mode = 2
+albedo_color = Color(1, 0.8, 0.4, 1)
+metallic = 0.1
+emission_enabled = true
+emission = Color(1, 0.8, 0.4, 1)
+emission_energy_multiplier = 3.0
+emission_operator = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_c2ibq"]
+lightmap_size_hint = Vector2i(17, 9)
+material = SubResource("StandardMaterial3D_5vvyt")
+radius = 0.003
+height = 0.005
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c2ibq"]
+emission_shape = 3
+emission_box_extents = Vector3(1.2, 0.8, 0.6)
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = 0.01
+initial_velocity_max = 0.03
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+scale_max = 1.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4qnp"]
+transparency = 1
+cull_mode = 2
+depth_draw_mode = 2
+no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+disable_specular_occlusion = true
+albedo_texture = ExtResource("14_devvj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fpfj3"]
+material = SubResource("StandardMaterial3D_j4qnp")
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_fos0i")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i5arm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_energy = 0.6
+shadow_enabled = true
+directional_shadow_max_distance = 30.0
+
+[node name="EnvironmentController" type="Node" parent="."]
+
+[node name="AudioController" type="Node" parent="."]
+
+[node name="CanFactory" type="Node3D" parent="."]
+script = ExtResource("3_lgr22")
+can_scene = ExtResource("4_devvj")
+
+[node name="VendingMachine" parent="." instance=ExtResource("5_03owx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8188051)
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, 0.63, 0.05)
+script = ExtResource("6_3dxm6")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0.1)
+current = true
+
+[node name="EnvironmentManager" type="Node3D" parent="."]
+script = ExtResource("7_lgr22")
+sfx_rain = ExtResource("8_5vvyt")
+sfx_thunder_amb = ExtResource("9_5vvyt")
+sfx_joy_amb = ExtResource("10_c2ibq")
+sfx_zen_amb = ExtResource("11_c6i3y")
+sfx_glitch_amb = ExtResource("12_5vvyt")
+sfx_thunder_hit = ExtResource("9_c6i3y")
+zen_fog_textures = Array[Texture2D]([ExtResource("14_devvj"), ExtResource("15_3b0ty"), ExtResource("16_bg4s2"), ExtResource("17_hhcpw"), ExtResource("18_mxvw5"), ExtResource("19_xrxkg"), ExtResource("20_sqvbp"), ExtResource("21_hri7i")])
+
+[node name="AudioA" type="AudioStreamPlayer" parent="EnvironmentManager"]
+
+[node name="AudioB" type="AudioStreamPlayer" parent="EnvironmentManager"]
+
+[node name="RainParticles" type="GPUParticles3D" parent="EnvironmentManager"]
+emitting = false
+amount = 150
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_5vvyt")
+draw_pass_1 = SubResource("QuadMesh_5vvyt")
+
+[node name="FireflyParticles" type="GPUParticles3D" parent="EnvironmentManager"]
+emitting = false
+amount = 120
+lifetime = 6.0
+process_material = SubResource("ParticleProcessMaterial_c6i3y")
+draw_pass_1 = SubResource("SphereMesh_c2ibq")
+
+[node name="ThunderOneShot" type="AudioStreamPlayer" parent="EnvironmentManager"]
+
+[node name="ZenFogParticles" type="GPUParticles3D" parent="EnvironmentManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40662414, 0)
+emitting = false
+amount = 15
+lifetime = 10.0
+visibility_aabb = AABB(-10, -10, -10, 20, 20, 20)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_c2ibq")
+draw_pass_1 = SubResource("QuadMesh_fpfj3")
+
+[node name="VM_ParticleCollision" type="GPUParticlesCollisionBox3D" parent="EnvironmentManager"]
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.3, 0.04444903, 0.5855102, -0.36394554)
