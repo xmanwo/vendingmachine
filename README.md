@@ -250,10 +250,11 @@ this is the authoritative record, not a guess.
 
 - [ ] Six audio files and eight fog sprites have no recorded source or licence
       (see *Assets & Credits* above)
-- [ ] The repository has no `LICENSE` file of its own (see *License* below)
 
 **Resolved**
 
+- [x] **Added an MIT `LICENSE`** covering the source code. The third-party assets
+      keep their own terms — see *License* below for the split.
 - [x] **371 unused files removed.** The project went from **376 MB to 54 MB**.
       Only four asset groups are actually referenced by the scenes: the two
       models, one HDRI, eight fog sprites and six audio tracks. Everything else
@@ -272,14 +273,25 @@ this is the authoritative record, not a guess.
 
 ## License
 
-There is **no `LICENSE` file in this repository yet**, which legally means "all
-rights reserved" even though the code is public. Since this is a portfolio
-project, adding one is worth doing — MIT is the usual choice for a small Godot
-project.
+The **source code** in this repository is released under the
+[MIT License](LICENSE) — © 2025 Xiaoxin Chen.
 
-Note the split, though: an MIT licence here could only cover *my* code. The two
-3D models sit under **CC-BY-4.0** and keep their own terms regardless of what
-licence the repository carries (see *Assets & Credits*).
+That licence covers the code only. The third-party assets keep their own terms
+and are **not** relicensed by it:
+
+| Part | Licence |
+| --- | --- |
+| All GDScript, scenes, and project configuration | **MIT** |
+| `retro_cyberpunk_vending_machine.glb`, `soda_cangray.glb` | **CC-BY-4.0** — attribution required |
+| `street_lamp_2k.exr` | **CC0** — no attribution required |
+| Audio tracks and fog sprites | unrecorded — see *Assets & Credits* |
+
+In short: fork it, learn from it, ship it — just keep the CC-BY credit for the
+two models, and don't assume the audio is cleared.
+
+*(CC-BY-4.0 is an attribution licence, not a copyleft one, so it does not
+conflict with MIT: the code and the models are separate works with separate
+obligations.)*
 
 ---
 
