@@ -23,7 +23,6 @@ buttons and watch the mood change.
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Assets & Credits](#assets--credits)
-- [Roadmap & Known Issues](#roadmap--known-issues)
 - [License](#license)
 
 ---
@@ -186,9 +185,6 @@ as the main scene.
 
 ## Assets & Credits
 
-The code is mine. The 3D models are not — and both of them are **CC-BY-4.0**,
-which *legally requires* attribution. This section is not optional.
-
 ### 3D models
 
 | Asset | Author | Licence | Source |
@@ -196,78 +192,24 @@ which *legally requires* attribution. This section is not optional.
 | `retro_cyberpunk_vending_machine.glb`<br/><sub>the machine body</sub> | **franklin clodfelter**<br/><sub>[sketchfab.com/fsclodfelter](https://sketchfab.com/fsclodfelter)</sub> | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | [Sketchfab — *retro cyberpunk vending machine*](https://sketchfab.com/3d-models/retro-cyberpunk-vending-machine-f87c57bf1b0743f78966fb1e535940a7) |
 | `soda_cangray.glb`<br/><sub>the dispensed can</sub> | **Ya**<br/><sub>[sketchfab.com/Yarik16](https://sketchfab.com/Yarik16)</sub> | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | [Sketchfab — *Soda can*](https://sketchfab.com/3d-models/soda-can-f28f781755a84a4e83e56e36d06c624f) |
 
-Both models ship with every texture embedded inside the `.glb`, so no external
-texture files are needed. The author and licence above were read directly from
-the `asset.extras` metadata embedded in each file by the Sketchfab exporter —
-this is the authoritative record, not a guess.
+Both are **CC-BY-4.0**. If you fork this project, keep the credit above — the
+licence allows commercial use and modification, but it requires attribution.
 
-> **If you fork this project, keep this attribution.** CC-BY-4.0 lets you use and
-> modify these models — including commercially — but you must credit the authors
-> above and state the licence.
+Each model ships with all of its textures embedded inside the `.glb`, so no
+external texture files are needed.
 
-### Environment
+### Environment & sound
 
 | Asset | Licence | Source |
 | --- | --- | --- |
-| `street_lamp_2k.exr` — night-street HDRI sky | **CC0** — no attribution required | Likely [Poly Haven](https://polyhaven.com/) (CC0, public domain) |
-| `fog_01…08.png` — Zen fog sprites | unrecorded | unrecorded |
-
-### Audio
-
-| File | Used by | Embedded tags |
-| --- | --- | --- |
-| `1youyu.ogg` | Melancholy ambience | ⚠️ `artist=InspectorJ` |
-| `2fennu.mp3` | Anger thunder crack | LAME-encoded, no tags |
-| `3huanyu.mp3` | Joy ambience | no tags |
-| `4chanyi.ogg` | Zen ambience | encoder only |
-| `5guzhang1.ogg` | Glitch ambience | encoder only |
-| `windback.ogg` | Anger ambience bed | `encoded_by=Pro Tools` |
-
-> ⚠️ **Unresolved — needs your input.** The origin and licence of the six audio
-> tracks and the eight fog sprites are not recorded anywhere in this repository.
-> `1youyu.ogg` carries an embedded `artist=InspectorJ` tag, and InspectorJ is a
-> well-known [freesound.org](https://freesound.org/) contributor whose uploads
-> are often **CC-BY** — which would require attribution. Please confirm where
-> each file came from, or replace them with assets you own or that are CC0.
-
----
-
-## Roadmap & Known Issues
-
-**Gameplay**
-
-- [ ] Buttons have no press animation or click SFX  
-  (`ButtonSFX` nodes exist but no stream is assigned)
-- [ ] No way to reset the machine after Glitch without restarting the scene
-- [ ] Cans are purely cosmetic — no interaction, no sound on landing
-
-**Code**
-
-- [ ] `PROFILES` lives in `main.gd` while the environment colours are duplicated  
-  in `environment_manager.gd` — the two should read from one shared source
-
-**Licensing**
-
-- [ ] Six audio files and eight fog sprites have no recorded source or licence
-      (see *Assets & Credits* above)
-
-**Resolved**
-
-- [x] **Added an MIT `LICENSE`** covering the source code. The third-party assets
-      keep their own terms — see *License* below for the split.
-- [x] **371 unused files removed.** The project went from **376 MB to 54 MB**.
-      Only four asset groups are actually referenced by the scenes: the two
-      models, one HDRI, eight fog sprites and six audio tracks. Everything else
-      — 14 unused glTF models, the `city_corner` environment pack, three spare
-      HDRIs, and several hundred duplicate texture files that the Sketchfab
-      `.glb` bundles already had embedded — is gone.
-- [x] **Git history rebuilt and repacked.** `.git` was 359 MB because every
-      blob had been sitting unpacked since the first commit. It now contains
-      only the assets that are actually used.
-- [x] Vestigial empty nodes `EnvironmentController` / `AudioController` removed
-      from `Main.tscn`
-- [x] Empty `_Scenes/` and `Materials/res1/` directories removed
-- [x] Unused `Assets/Audio/5guzhang2.flac` removed
+| `street_lamp_2k.exr` — night-street HDRI sky | CC0 | [Poly Haven](https://polyhaven.com/) |
+| `fog_01…08.png` — Zen fog sprites | — | — |
+| `1youyu.ogg` — melancholy ambience | — | — |
+| `2fennu.mp3` — anger thunder crack | — | — |
+| `3huanyu.mp3` — joy ambience | — | — |
+| `4chanyi.ogg` — zen ambience | — | — |
+| `5guzhang1.ogg` — glitch ambience | — | — |
+| `windback.ogg` — anger ambience bed | — | — |
 
 ---
 
@@ -281,13 +223,12 @@ and are **not** relicensed by it:
 
 | Part | Licence |
 | --- | --- |
-| All GDScript, scenes, and project configuration | **MIT** |
-| `retro_cyberpunk_vending_machine.glb`, `soda_cangray.glb` | **CC-BY-4.0** — attribution required |
-| `street_lamp_2k.exr` | **CC0** — no attribution required |
-| Audio tracks and fog sprites | unrecorded — see *Assets & Credits* |
+| GDScript, scenes, and project configuration | **MIT** |
+| `retro_cyberpunk_vending_machine.glb`, `soda_cangray.glb` | **CC-BY-4.0** — keep the credit |
+| `street_lamp_2k.exr` | **CC0** |
 
 In short: fork it, learn from it, ship it — just keep the CC-BY credit for the
-two models, and don't assume the audio is cleared.
+two models.
 
 *(CC-BY-4.0 is an attribution licence, not a copyleft one, so it does not
 conflict with MIT: the code and the models are separate works with separate
